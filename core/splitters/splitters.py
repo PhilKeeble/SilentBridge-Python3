@@ -1,6 +1,6 @@
 import argparse
 import time
-import state_banners
+from . state_banners import *
 
 from nanpy import (ArduinoApi, SerialManager)
 
@@ -30,22 +30,22 @@ class Splitters(object):
 
         if self.upstream_state is None or self.phy_state is None:
 
-            print 'State unknown'
+            print ('State unknown')
         
         else:
 
-            print 'Upstream Connected:', self.upstream_state
-            print 'PHY Connected:', self.phy_state
+            print ('Upstream Connected:'), self.upstream_state
+            print ('PHY Connected:'), self.phy_state
             if pretty:
                 if self.upstream_state:
-                    print state_banners.upstream_connected
+                    print (state_banners.upstream_connected)
                 else:
-                    print state_banners.upstream_bypass
-                print state_banners.banner_center
+                    print (state_banners.upstream_bypass)
+                print (state_banners.banner_center)
                 if self.phy_state:
-                    print state_banners.phy_connected
+                    print (state_banners.phy_connected)
                 else:
-                    print state_banners.phy_bypass
+                    print (state_banners.phy_bypass)
 
     def set_upstream(self, state):
 

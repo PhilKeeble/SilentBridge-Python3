@@ -1,3 +1,3 @@
-import utils
-import firewalls
-import analyzer
+from . utils import *
+from . firewalls import *
+from . analyzer import *

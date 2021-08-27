@@ -1,2 +1,2 @@
-import cert_manager
-import cert_manager_templates
+from . cert_manager import *
+from . cert_manager_templates import *

@@ -1,4 +1,4 @@
-import ConfigParser
+import configparser
 import os
 
 
@@ -9,7 +9,7 @@ class CoreConfig(object):
         self.path = input_path
         self.hostapd_conf_path = output_path
 
-        self.config = ConfigParser.ConfigParser()
+        self.config = configparser.ConfigParser()
         self.config.read(self.path)
 
     def sections(self):

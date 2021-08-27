@@ -7,3 +7,4 @@ libnl-genl-3-dev
 macchanger
 arptables
 ebtables
+bridge-utils

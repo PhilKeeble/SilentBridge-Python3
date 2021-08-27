@@ -16,9 +16,9 @@ def analyze_filter(pkt):
 
         if eap_type == 0x1 and pkt[EAP].code == 0x2:
 
-            print '[*] Detected EAP-Identify Response packet...'
-            print '[*] Grabbing username...'
-            print '[*] Username sniffed:', pkt[EAP].identity
+            print ('[*] Detected EAP-Identify Response packet...')
+            print ('[*] Grabbing username...')
+            print ('[*] Username sniffed:'), pkt[EAP].identity
 
         # props to crEAP.py and EAPMD5crack for original logic
         if eap_type == 0x4:
@@ -31,11 +31,11 @@ def analyze_filter(pkt):
             if pkt[EAP].code == 0x1:
 
                 challenge = pkt[EAP].value.encode('hex')
-                print '[+] EAP-MD5 Authentication Detected'
-                print ' |'
-                print ' ---| MD5 Request ID |-->', eap_id
-                print ' |'
-                print ' ---| MD5 Challenge  |-->', encode_eap_hash(challenge)
+                print ('[+] EAP-MD5 Authentication Detected')
+                print (' |')
+                print (' ---| MD5 Request ID |-->'), eap_id
+                print (' |')
+                print (' ---| MD5 Challenge  |-->'), encode_eap_hash(challenge)
 
                 EAP_MD5_ITEMS[eap_id]['challenge'] = challenge
 
@@ -43,35 +43,35 @@ def analyze_filter(pkt):
             
 
                 response = pkt[EAP].value.encode('hex')
-                print ' |'
-                print ' ---| MD5 Response   |-->', encode_eap_hash(response)
+                print (' |')
+                print (' ---| MD5 Response   |-->'), encode_eap_hash(response)
                 print
                 EAP_MD5_ITEMS[eap_id]['response'] = response
 
         elif pkt[EAP].type == 17:
-            print '[*] EAP type found: EAP-LEAP'
-            print '[*] Suggested attack: rogue gateway'
+            print ('[*] EAP type found: EAP-LEAP')
+            print ('[*] Suggested attack: rogue gateway')
 
         elif pkt[EAP].type == 21:
-            print '[*] EAP type found: EAP-FAST'
-            print '[*] Suggested attack: rogue gateway'
+            print ('[*] EAP type found: EAP-FAST')
+            print ('[*] Suggested attack: rogue gateway')
 
         elif pkt[EAP].type == 32:
-            print '[*] EAP type found: EAP-POTP'
-            print '[*] Find another device to attack...'
+            print ('[*] EAP type found: EAP-POTP')
+            print ('[*] Find another device to attack...')
 
         elif pkt[EAP].type == 47:
-            print '[*] EAP type found: EAP-PSK'
+            print ('[*] EAP type found: EAP-PSK')
 
         elif pkt[EAP].type == 25:
-            print '[*] EAP type found: EAP-PEAP'
-            print '[*] Suggested attack: rogue gateway'
+            print ('[*] EAP type found: EAP-PEAP')
+            print ('[*] Suggested attack: rogue gateway')
 
         elif pkt[EAP].type == 13:
-            print '[*] EAP type found: EAP-TLS... find another device to attack.'
+            print ('[*] EAP type found: EAP-TLS... find another device to attack.')
 
         else:
-            print '[*] Skipping packet of type:', eap_types[eap_type]
+            print ('[*] Skipping packet of type:'), eap_types[eap_type]
 
 
 class Analyzer(object):

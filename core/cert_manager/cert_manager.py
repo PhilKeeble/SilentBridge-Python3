@@ -1,5 +1,5 @@
 import os
-import cert_manager_templates as cnf_templates
+from . import cert_manager_templates as cnf_templates
 
 import settings.paths
 

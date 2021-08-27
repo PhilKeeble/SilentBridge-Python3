@@ -1,3 +1,3 @@
-import iptables
-import ebtables
-import arptables
+from . iptables import *
+from . ebtables import *
+from . arptables import *
