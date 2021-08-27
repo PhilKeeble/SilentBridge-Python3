@@ -3,6 +3,25 @@
 # silentbridge
 by Gabriel Ryan ([@s0lst1c3](https://twitter.com/s0lst1c3)) @ SpecterOps (gryan@specterops.io)
 
+# Original
+
+Original is here(https://github.com/s0lst1c3/silentbridge).
+
+This is merely changing it so that it works for all Python3 to save some installation pains.
+
+Quick commands:
+
+```
+# Creating bridge 
+sudo ./silentbridge --create-bridge --upstream eth1 --phy eth2 --sidechannel eth0
+
+# Adding interaction
+sudo ./silentbridge --add-interaction --gw-mac d0:17:c2:3f:af:e0 --client-ip 192.168.1.81 --upstream eth1 --client-mac 38:60:32:d0:ef:0b --phy eth2 --switch-mac 00:42:5a:87:09:85 --sidechannel eth0
+
+# Destroying bridge 
+sudo ./silentbridge --destroy-bridge --upstream eth1 --phy eth2 --sidechannel eth0
+```
+
 ## Overview
 
 Silentbridge is a toolkit for quickly bypassing 802.1x port security first presented at DEF CON 26. It provides the first documented means of bypassing 802.1x-2010 via its authentication process, as well as improvements to existing techniques for bypassing 802.1x-2004.
